@@ -124,7 +124,7 @@ blockquote
 
 .top_sh
 {
-	background: #e7e7e7 bottom url(/img/top_sh.gif) no-repeat;
+	background: #e7e7e7 bottom url(img/top_sh.gif) no-repeat;
 	height: 25px;
 }
 
@@ -133,7 +133,7 @@ blockquote
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	background: #e7e7e7 url(/img/bottom_sh.gif) no-repeat;
+	background: #e7e7e7 url(img/bottom_sh.gif) no-repeat;
 	height: 110px;
 	width: 100%;
 }
@@ -143,7 +143,7 @@ blockquote
 	position: absolute;
 	width: 17px;
 	height: 23px;
-	background: url(/img/left_top_sh.gif) no-repeat;
+	background: url(img/left_top_sh.gif) no-repeat;
 	left: 0;
 }
 
@@ -152,7 +152,7 @@ blockquote
 	position: absolute;
 	width: 14px;
 	height: 300px;
-	background: url(/img/right_top_sh.gif) no-repeat;
+	background: url(img/right_top_sh.gif) no-repeat;
 	right: 0;
 }
 
@@ -161,7 +161,7 @@ blockquote
 	position: absolute;
 	width: 14px;
 	height: 300px;
-	background: url(/img/right_bottom_sh.gif) no-repeat;
+	background: url(img/right_bottom_sh.gif) no-repeat;
 	right: 0;
 	bottom: 110px;
 }
@@ -169,7 +169,7 @@ blockquote
 .c_body
 {
 	padding: 0 90px 160px 70px;
-	background: right url(/img/right_center_sh.gif) repeat-y;
+	background: right url(img/right_center_sh.gif) repeat-y;
 	zoom: 1;
 }
 
@@ -521,7 +521,7 @@ ul.staff li blockquote, ul.staff li p
 ul.staff li img
 {
 	margin-bottom: 0;
-	float: left; 
+	float: left;
 	zoom: 1;
 }
 
