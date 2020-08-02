@@ -20,9 +20,9 @@ layout: default
                                 {% for issue in issues_by_year %}
                                     {% if issue.month == month %}
                                         {% if page.month == issue.month %}
-                                            <li><a href="{{ site.url }}/{{ issue.url }}">{{ months[month_idx] }}</a></li>
+                                            <li><a href="{{ issue.url }}">{{ months[month_idx] }}</a></li>
                                         {% else %}
-                                            <li><a href="{{ site.url }}/{{ issue.url }}" style="color: #404040;">{{ months[month_idx] }}</a></li>
+                                            <li><a href="{{ issue.url }}" style="color: #404040;">{{ months[month_idx] }}</a></li>
                                         {% endif %}
                                         {% assign found = true %}
                                         {% break %}
@@ -35,7 +35,7 @@ layout: default
                         </ul>
                     {% else %}
                         {% assign issue = issues_by_year | first %}
-                        <a href="{{ site.url }}/{{ issue.url }}">{{ issue.year }}</a>
+                        <a href="{{ issue.url }}">{{ issue.year }}</a>
                     {% endif %}
                 </li>
             {% endfor %}
@@ -62,7 +62,7 @@ layout: default
                     {% if page.number == issue.number %}
                         <li>№ {{ issue.number }} <span>{{ issue_day }} {{ months2[issue_month] }}</span></li>
                     {% else %}
-                        <li><a href="{{ site.url }}/{{ issue.url }}">№ {{ issue.number }}</a> <span>{{ issue_day }} {{ months2[issue_month] }}</span></li>
+                        <li><a href="{{ issue.url }}">№ {{ issue.number }}</a> <span>{{ issue_day }} {{ months2[issue_month] }}</span></li>
                     {% endif %}
                 {% endif %}
             {% endfor %}
