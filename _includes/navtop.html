@@ -1,0 +1,28 @@
+{% for entry in site.data.navigation %}
+    {% if entry.url == page.url %}
+        {% assign current_page = entry.url %}
+        {% break %}
+    {% endif %}
+    {% for subentry in entry.sublinks %}
+        {% if subentry.url == page.url %}
+            {% assign current_page = entry.url %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+<ul class="top menu">
+{% for entry in site.data.navigation %}
+    {% if entry.url == current_page %}
+        <li>
+            <a href="{{ entry.url }}" style="color: #006393;">{{ entry.title }}</a>
+            {% if entry.sublinks %}
+            <ul class="menu">{% for subentry in entry.sublinks %}<li><a href="{{ subentry.url }}">{{ subentry.title }}</a></li>{% endfor %}</ul>
+            {% endif %}
+        </li>
+    {% else %}
+        <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+    {% endif %}
+    {% assign sublinks = entry.sublinks %}
+{% endfor %}
+</ul>

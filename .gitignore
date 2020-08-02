@@ -1,2 +1,3 @@
 *.py
-
+.jekyll-cache
+_site

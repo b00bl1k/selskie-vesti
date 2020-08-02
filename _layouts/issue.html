@@ -1,0 +1,71 @@
+---
+layout: default
+---
+{% assign months = "Январь,Февраль,Март,Апрель,Май,Июнь,Июль,Август,Сентябрь,Октябрь,Ноябрь,Декабрь" | split: "," %}
+{% assign months2 = "Января,Февраля,Марта,Апреля,Мая,Июня,Июля,Августа,Сентября,Октября,Ноября,Декабря" | split: "," %}
+{% assign months_num = "01,02,03,04,05,06,07,08,09,10,11,12" | split: "," %}
+
+<div class="tbl bordered">
+    <div class="column" style="width: 200px; padding-left: 10px;">
+        <ul class="years">
+            {% for year in site.years %}
+                {% assign issues_by_year = site.issues | where: "year", year.title %}
+                <li>
+                    {% if year.title == page.year %}
+                        {{ year.title }}
+                        <ul class="monthes">
+                            {% for month in months_num %}
+                                {% assign month_idx = month | minus: 1 %}
+                                {% assign found = false %}
+                                {% for issue in issues_by_year %}
+                                    {% if issue.month == month %}
+                                        {% if page.month == issue.month %}
+                                            <li><a href="{{ site.url }}/{{ issue.url }}">{{ months[month_idx] }}</a></li>
+                                        {% else %}
+                                            <li><a href="{{ site.url }}/{{ issue.url }}" style="color: #404040;">{{ months[month_idx] }}</a></li>
+                                        {% endif %}
+                                        {% assign found = true %}
+                                        {% break %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if found == false %}
+                                    <li>{{ months[month_idx] }}</li>
+                                {% endif  %}
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        {% assign issue = issues_by_year | first %}
+                        <a href="{{ site.url }}/{{ issue.url }}">{{ issue.year }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="column" style="width: 420px;">
+        {% assign posts = site.posts | where: "categories", page.number | where: "categories", page.year %}
+        {% assign issue_day = page.day | plus: 0 %}
+        {% assign issue_month = page.month | minus: 1 %}
+        <h1 class="date">№ {{ page.number }} <span>{{ issue_day }} {{ months2[issue_month] }}</span></h1>
+        {% for post in posts %}
+            {% include post_preview.html %}
+        {% endfor %}
+    </div>
+
+    <div class="column" style="width: 200px; text-align: right; padding-right: 10px;">
+        <ul class="numbers">
+            {% assign reversed_issues = site.issues | reverse %}
+            {% for issue in reversed_issues %}
+                {%if issue.year == page.year and issue.month == page.month %}
+                    {% assign issue_day = issue.day | plus: 0 %}
+                    {% assign issue_month = issue.month | minus: 1 %}
+                    {% if page.number == issue.number %}
+                        <li>№ {{ issue.number }} <span>{{ issue_day }} {{ months2[issue_month] }}</span></li>
+                    {% else %}
+                        <li><a href="{{ site.url }}/{{ issue.url }}">№ {{ issue.number }}</a> <span>{{ issue_day }} {{ months2[issue_month] }}</span></li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>

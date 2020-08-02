@@ -1,0 +1,13 @@
+- title: Главная
+  url: /
+- title: О газете
+  url: /about.html
+  sublinks:
+    - title: История
+      url: /history.html
+    - title: Коллектив
+      url: /collective.html
+    - title: Документы
+      url: /documents.html
+- title: Номера
+  url: /issues/2017/24.html

@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /install/
-Host: www.selskie-vesti.ru
-Sitemap: http://www.selskie-vesti.ru/sitemap.xml
