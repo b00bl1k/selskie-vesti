@@ -13,4 +13,5 @@ collections:
       - "2010.md"
       - "2009.md"
       - "2008.md"
+      - "2004.md"
 permalink: /issues/:categories/:title:output_ext
